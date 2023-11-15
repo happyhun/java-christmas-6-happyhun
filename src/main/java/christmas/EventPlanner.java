@@ -24,7 +24,7 @@ public class EventPlanner {
     }
 
     private void printOrderResult(OrderResult result) {
-        outputView.printPreviewMessage();
+        outputView.printPreviewMessage(result.date());
         outputView.printOrders(result.orders());
         outputView.printTotalPrice(result.totalPrice());
         outputView.printGiftMenus(result.giftMenus());
@@ -46,6 +46,6 @@ public class EventPlanner {
         int totalDiscountAmount = orderCalculator.calculateTotalDiscountAmount(promotionDetails);
         Optional<Badge> optionalBadge = promotionManager.getBadge(totalDiscountAmount);
 
-        return new OrderResult(orders, totalPrice, giftMenus, promotionDetails, totalDiscountAmount, optionalBadge);
+        return new OrderResult(date, orders, totalPrice, giftMenus, promotionDetails, totalDiscountAmount, optionalBadge);
     }
 }
