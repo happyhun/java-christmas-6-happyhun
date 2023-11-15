@@ -12,7 +12,7 @@ class InputValidatorTest {
     void 날짜_예외_테스트(String input) {
         assertThatThrownBy(() -> InputValidator.getValidDate(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+                .hasMessageContaining("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
     }
 
 }
