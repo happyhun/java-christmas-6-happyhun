@@ -30,7 +30,7 @@ public class EventPlanner {
         outputView.printGiftMenus(result.giftMenus());
         outputView.printPromotionDetails(result.promotionDetails());
         outputView.printTotalDiscountAmount(result.totalDiscountAmount());
-        outputView.printTotalPriceAfterDiscount(result.totalPrice() - result.totalDiscountAmount());
+        outputView.printTotalPriceAfterDiscount(result.totalPriceAfterDiscount());
         outputView.printBadge(result.optionalBadge());
     }
 
@@ -44,8 +44,9 @@ public class EventPlanner {
         Map<Menu, Integer> giftMenus = promotionManager.getGiftMenus(totalPrice);
         Map<Promotion, Integer> promotionDetails = promotionDetail.getPromotionDetails(orders, giftMenus, specialDates, date);
         int totalDiscountAmount = orderCalculator.calculateTotalDiscountAmount(promotionDetails);
+        int totalPriceAfterDiscount = orderCalculator.calculateTotalPriceAfterDiscount(totalPrice, totalDiscountAmount, giftMenus);
         Optional<Badge> optionalBadge = promotionManager.getBadge(totalDiscountAmount);
 
-        return new OrderResult(date, orders, totalPrice, giftMenus, promotionDetails, totalDiscountAmount, optionalBadge);
+        return new OrderResult(date, orders, totalPrice, giftMenus, promotionDetails, totalDiscountAmount, totalPriceAfterDiscount, optionalBadge);
     }
 }

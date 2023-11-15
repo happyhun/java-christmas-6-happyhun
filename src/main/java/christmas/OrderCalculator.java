@@ -23,4 +23,15 @@ public class OrderCalculator {
         }
         return totalDiscountAmount;
     }
+
+    public int calculateTotalPriceAfterDiscount(int totalPrice, int totalDiscountAmount, Map<Menu, Integer> giftMenus) {
+        int giftPrice = 0;
+        for (Map.Entry<Menu, Integer> giftMenu : giftMenus.entrySet()) {
+            Menu menu = giftMenu.getKey();
+            int count = giftMenu.getValue();
+            giftPrice += menu.getPrice() * count;
+        }
+
+        return totalPrice - totalDiscountAmount + giftPrice;
+    }
 }
