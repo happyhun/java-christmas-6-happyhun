@@ -22,7 +22,7 @@ public enum Menu {
     private final MenuType type;
     private final int price;
 
-    private Menu(String name, MenuType type, int price) {
+    Menu(String name, MenuType type, int price) {
         this.name = name;
         this.type = type;
         this.price = price;

@@ -12,7 +12,7 @@ public enum Promotion {
     private final String name;
     private final int discount;
 
-    private Promotion(String name, int discount) {
+    Promotion(String name, int discount) {
         this.name = name;
         this.discount = discount;
     }
