@@ -10,5 +10,6 @@ public class OutputView {
         for (Map.Entry<Menu, Integer> order : orders.entrySet()) {
             System.out.printf("%s %d개\n", order.getKey().getName(), order.getValue());
         }
+        System.out.println();
     }
 }
