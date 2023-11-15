@@ -8,10 +8,24 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import static christmas.Promotion.*;
 
 public class PromotionManager {
+
+    public Optional<Badge> getBadge(int totalDiscountAmount) {
+        if (totalDiscountAmount >= Badge.SANTA.getThreshold()) {
+            return Optional.of(Badge.SANTA);
+        }
+        if (totalDiscountAmount >= Badge.TREE.getThreshold()) {
+            return Optional.of(Badge.TREE);
+        }
+        if (totalDiscountAmount >= Badge.STAR.getThreshold()) {
+            return Optional.of(Badge.STAR);
+        }
+        return Optional.empty();
+    }
 
     public Map<Menu, Integer> getGiftMenus(int totalPrice) {
         Map<Menu, Integer> giftMenus = new HashMap<>();

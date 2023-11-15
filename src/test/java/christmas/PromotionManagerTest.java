@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.Map;
 
+import static christmas.Badge.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class PromotionManagerTest {
@@ -71,5 +72,29 @@ class PromotionManagerTest {
         int date = 2;
 
         assertThat(promotionManager.getSpecialDiscountAmount(spcialDates, date)).isEqualTo(1000);
+    }
+
+    @Test
+    void 총혜택_금액이_2만원_이상이면_산타_배지를_받는다() {
+        int totalDiscountAmount = 20000;
+        assertThat(promotionManager.getBadge(totalDiscountAmount).get()).isEqualTo(SANTA);
+    }
+
+    @Test
+    void 총혜택_금액이_1만원_이상이면_트리_배지를_받는다() {
+        int totalDiscountAmount = 10000;
+        assertThat(promotionManager.getBadge(totalDiscountAmount).get()).isEqualTo(TREE);
+    }
+
+    @Test
+    void 총혜택_금액이_5천원_이상이면_별_배지를_받는다() {
+        int totalDiscountAmount = 5000;
+        assertThat(promotionManager.getBadge(totalDiscountAmount).get()).isEqualTo(STAR);
+    }
+
+    @Test
+    void 총혜택_금액이_5천원_미만이면_배지를_못받는다() {
+        int totalDiscountAmount = 4000;
+        assertThat(promotionManager.getBadge(totalDiscountAmount)).isEmpty();
     }
 }
