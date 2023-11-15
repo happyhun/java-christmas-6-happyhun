@@ -25,6 +25,9 @@ public class OutputView {
 
     public void printGiftMenus(Map<Menu, Integer> orders) {
         System.out.println("<증정 메뉴>");
+        if (orders.isEmpty()) {
+            System.out.println("없음");
+        }
         for (Map.Entry<Menu, Integer> order : orders.entrySet()) {
             System.out.printf("%s %d개\n", order.getKey().getName(), order.getValue());
         }
