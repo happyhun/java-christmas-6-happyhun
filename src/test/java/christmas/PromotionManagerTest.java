@@ -47,4 +47,20 @@ class PromotionManagerTest {
 
         assertThat(promotionManager.getWeekdayDiscountAmount(menuType, date)).isEqualTo(0);
     }
+
+    @Test
+    void 주말에는_메인_할인을_적용한다() {
+        int date = 1;
+        MenuType menuType = MenuType.MAIN;
+
+        assertThat(promotionManager.getWeekendDiscountAmount(menuType, date)).isEqualTo(2023);
+    }
+
+    @Test
+    void 평일에는_메인_할인을_적용하지_않는다() {
+        int date = 4;
+        MenuType menuType = MenuType.MAIN;
+
+        assertThat(promotionManager.getWeekendDiscountAmount(menuType, date)).isEqualTo(0);
+    }
 }

@@ -8,8 +8,7 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
-import static christmas.Promotion.CHRISTMAS_DDAY_DISCOUNT;
-import static christmas.Promotion.WEEKDAY_DISCOUNT;
+import static christmas.Promotion.*;
 
 public class PromotionManager {
 
@@ -41,5 +40,20 @@ public class PromotionManager {
         }
 
         return WEEKDAY_DISCOUNT.getDiscount();
+    }
+
+    public int getWeekendDiscountAmount(MenuType menuType, int date) {
+        if (menuType != MenuType.MAIN) {
+            return 0;
+        }
+
+        LocalDate localDate = LocalDate.of(2023, 12, date);
+        DayOfWeek day = localDate.getDayOfWeek();
+
+        if (day == DayOfWeek.FRIDAY || day == DayOfWeek.SATURDAY) {
+            return WEEKEND_DISCOUNT.getDiscount();
+        }
+
+        return 0;
     }
 }
