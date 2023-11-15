@@ -21,7 +21,7 @@ public class InputValidator {
         return date;
     }
 
-    public static Map<Menu, Integer> getValidOrder(String input) {
+    public static Map<Menu, Integer> getValidOrders(String input) {
         Map<Menu, Integer> orders = new HashMap<>();
 
         for (String order : input.split(",")) {
