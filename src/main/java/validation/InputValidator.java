@@ -1,6 +1,6 @@
 package validation;
 
-import christmas.Menu;
+import christmas.menu.Menu;
 
 import java.util.*;
 

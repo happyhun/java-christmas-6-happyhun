@@ -1,7 +1,7 @@
 package view;
 
 import camp.nextstep.edu.missionutils.Console;
-import christmas.Menu;
+import christmas.menu.Menu;
 import validation.InputValidator;
 
 import java.util.Map;

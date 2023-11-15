@@ -1,11 +1,12 @@
 package christmas;
 
+import christmas.menu.Menu;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static christmas.Menu.BUTTON_MUSHROOM_SOUP;
+import static christmas.menu.Menu.BUTTON_MUSHROOM_SOUP;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class OrderCalculatorTest {

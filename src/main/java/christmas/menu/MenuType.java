@@ -1,4 +1,4 @@
-package christmas;
+package christmas.menu;
 
 public enum MenuType {
     APPETIZER,

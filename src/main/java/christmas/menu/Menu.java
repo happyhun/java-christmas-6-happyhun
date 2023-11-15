@@ -1,8 +1,8 @@
-package christmas;
+package christmas.menu;
 
 import java.util.Optional;
 
-import static christmas.MenuType.*;
+import static christmas.menu.MenuType.*;
 
 public enum Menu {
     BUTTON_MUSHROOM_SOUP("양송이수프", APPETIZER, 6000),

@@ -1,5 +1,7 @@
 package christmas;
 
+import christmas.menu.Menu;
+
 import java.util.Map;
 
 public class OrderCalculator {

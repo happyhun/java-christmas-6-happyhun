@@ -1,6 +1,7 @@
 package christmas;
 
 
+import christmas.menu.Menu;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
