@@ -6,6 +6,7 @@ import christmas.menu.MenuType;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static christmas.Promotion.*;
@@ -54,6 +55,13 @@ public class PromotionManager {
             return WEEKEND_DISCOUNT.getDiscount();
         }
 
+        return 0;
+    }
+
+    public int getSpecialDiscountAmount(List<Integer> specialDates, int date) {
+        if (specialDates.contains(date)) {
+            return 1000;
+        }
         return 0;
     }
 }

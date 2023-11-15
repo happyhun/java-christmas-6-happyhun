@@ -5,6 +5,7 @@ import christmas.menu.Menu;
 import christmas.menu.MenuType;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -62,5 +63,13 @@ class PromotionManagerTest {
         MenuType menuType = MenuType.MAIN;
 
         assertThat(promotionManager.getWeekendDiscountAmount(menuType, date)).isEqualTo(0);
+    }
+
+    @Test
+    void 이벤트_달력에_별이_있으면_특별_할인을_적용한다() {
+        List<Integer> spcialDates = List.of(1, 2, 3);
+        int date = 2;
+
+        assertThat(promotionManager.getSpecialDiscountAmount(spcialDates, date)).isEqualTo(1000);
     }
 }
