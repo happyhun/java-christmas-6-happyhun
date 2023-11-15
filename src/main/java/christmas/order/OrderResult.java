@@ -1,6 +1,8 @@
-package christmas;
+package christmas.order;
 
 import christmas.menu.Menu;
+import christmas.promotion.Badge;
+import christmas.promotion.Promotion;
 
 import java.util.Map;
 import java.util.Optional;

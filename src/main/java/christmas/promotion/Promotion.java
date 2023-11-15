@@ -1,4 +1,4 @@
-package christmas;
+package christmas.promotion;
 
 import static christmas.menu.Menu.CHAMPAGNE;
 

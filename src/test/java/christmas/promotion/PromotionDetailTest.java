@@ -1,6 +1,8 @@
-package christmas;
+package christmas.promotion;
 
 import christmas.menu.Menu;
+import christmas.promotion.Promotion;
+import christmas.promotion.PromotionDetail;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;

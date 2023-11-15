@@ -1,6 +1,8 @@
-package christmas;
+package christmas.order;
 
 import christmas.menu.Menu;
+import christmas.order.OrderCalculator;
+import christmas.promotion.Promotion;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;

@@ -1,14 +1,15 @@
-package christmas;
+package christmas.promotion;
 
 
 import christmas.menu.Menu;
 import christmas.menu.MenuType;
+import christmas.promotion.PromotionManager;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Map;
 
-import static christmas.Badge.*;
+import static christmas.promotion.Badge.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class PromotionManagerTest {

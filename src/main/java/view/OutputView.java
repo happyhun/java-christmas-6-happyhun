@@ -1,8 +1,8 @@
 package view;
 
-import christmas.Badge;
-import christmas.Promotion;
 import christmas.menu.Menu;
+import christmas.promotion.Badge;
+import christmas.promotion.Promotion;
 
 import java.text.NumberFormat;
 import java.util.Locale;

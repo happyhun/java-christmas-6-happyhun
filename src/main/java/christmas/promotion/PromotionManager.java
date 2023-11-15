@@ -1,4 +1,4 @@
-package christmas;
+package christmas.promotion;
 
 import christmas.menu.Menu;
 import christmas.menu.MenuType;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import static christmas.Promotion.*;
+import static christmas.promotion.Promotion.*;
 
 public class PromotionManager {
 

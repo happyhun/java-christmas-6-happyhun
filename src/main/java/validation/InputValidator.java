@@ -74,7 +74,7 @@ public class InputValidator {
     private static void validateOrders(Map<Menu, Integer> orders) {
         boolean isValid = false;
         int totalCount = 0;
-        for (Map.Entry<Menu, Integer> order :orders.entrySet()) {
+        for (Map.Entry<Menu, Integer> order : orders.entrySet()) {
             if (order.getKey().getType() != MenuType.DRINK) {
                 isValid = true;
             }

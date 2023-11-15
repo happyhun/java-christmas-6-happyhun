@@ -1,6 +1,12 @@
 package christmas;
 
 import christmas.menu.Menu;
+import christmas.order.OrderCalculator;
+import christmas.order.OrderResult;
+import christmas.promotion.Badge;
+import christmas.promotion.Promotion;
+import christmas.promotion.PromotionDetail;
+import christmas.promotion.PromotionManager;
 import view.InputView;
 import view.OutputView;
 

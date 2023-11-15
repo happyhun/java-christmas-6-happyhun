@@ -1,7 +1,8 @@
-package christmas;
+package christmas.promotion;
 
 import christmas.menu.Menu;
 import christmas.menu.MenuType;
+import christmas.order.OrderCalculator;
 
 import java.util.HashMap;
 import java.util.List;
