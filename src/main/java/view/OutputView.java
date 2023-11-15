@@ -1,11 +1,13 @@
 package view;
 
+import christmas.Badge;
 import christmas.Promotion;
 import christmas.menu.Menu;
 
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Optional;
 
 public class OutputView {
 
@@ -69,4 +71,14 @@ public class OutputView {
         System.out.println(formattedAmount + "원");
         System.out.println();
     }
+
+    public void printBadge(Optional<Badge> optionalBadge) {
+        if (optionalBadge.isEmpty()) {
+            System.out.println("없음");
+        }
+        if (optionalBadge.isPresent()) {
+            System.out.println(optionalBadge.get().getName());
+        }
+    }
+
 }
