@@ -1,11 +1,15 @@
 package christmas;
 
 import christmas.menu.Menu;
+import christmas.menu.MenuType;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
 import static christmas.Promotion.CHRISTMAS_DDAY_DISCOUNT;
+import static christmas.Promotion.WEEKDAY_DISCOUNT;
 
 public class PromotionManager {
 
@@ -22,5 +26,20 @@ public class PromotionManager {
             return 0;
         }
         return CHRISTMAS_DDAY_DISCOUNT.getDiscount() + (date - 1) * 100;
+    }
+
+    public int getWeekdayDiscountAmount(MenuType menuType, int date) {
+        if (menuType != MenuType.DESSERT) {
+            return 0;
+        }
+
+        LocalDate localDate = LocalDate.of(2023, 12, date);
+        DayOfWeek day = localDate.getDayOfWeek();
+
+        if (day == DayOfWeek.FRIDAY || day == DayOfWeek.SATURDAY) {
+            return 0;
+        }
+
+        return WEEKDAY_DISCOUNT.getDiscount();
     }
 }

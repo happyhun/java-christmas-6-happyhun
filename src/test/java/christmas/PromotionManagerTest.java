@@ -2,6 +2,7 @@ package christmas;
 
 
 import christmas.menu.Menu;
+import christmas.menu.MenuType;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
@@ -29,5 +30,21 @@ class PromotionManagerTest {
     void 이벤트_기간이_지나면_크리스마스_디데이_할인을_적용하지_않는다() {
         int date = 26;
         assertThat(promotionManager.getChristmasDdayDiscountAmount(date)).isEqualTo(0);
+    }
+
+    @Test
+    void 평일에는_디저트_할인을_적용한다() {
+        int date = 4;
+        MenuType menuType = MenuType.DESSERT;
+
+        assertThat(promotionManager.getWeekdayDiscountAmount(menuType, date)).isEqualTo(2023);
+    }
+
+    @Test
+    void 주말에는_디저트_할인을_적용하지_않는다() {
+        int date = 1;
+        MenuType menuType = MenuType.DESSERT;
+
+        assertThat(promotionManager.getWeekdayDiscountAmount(menuType, date)).isEqualTo(0);
     }
 }
