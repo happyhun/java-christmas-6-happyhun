@@ -67,5 +67,6 @@ public class OutputView {
         System.out.println("<할인 후 예상 결제 금액>");
         String formattedAmount = formatter.format(totalPriceAfterDiscount);
         System.out.println(formattedAmount + "원");
+        System.out.println();
     }
 }
