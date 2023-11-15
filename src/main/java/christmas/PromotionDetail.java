@@ -9,8 +9,8 @@ import java.util.Map;
 
 public class PromotionDetail {
 
-    PromotionManager promotionManager = new PromotionManager();
-    OrderCalculator orderCalculator = new OrderCalculator();
+    private final PromotionManager promotionManager = new PromotionManager();
+    private final OrderCalculator orderCalculator = new OrderCalculator();
 
     public Map<Promotion, Integer> getPromotionDetails(Map<Menu, Integer> orders, Map<Menu, Integer> giftMenus, List<Integer> specialDates, int date) {
         Map<Promotion, Integer> promotionDetails = initPromotionDetails();
