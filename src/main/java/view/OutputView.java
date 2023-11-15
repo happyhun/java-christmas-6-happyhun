@@ -73,6 +73,7 @@ public class OutputView {
     }
 
     public void printBadge(Optional<Badge> optionalBadge) {
+        System.out.println("<12월 이벤트 배지>");
         if (optionalBadge.isEmpty()) {
             System.out.println("없음");
         }
