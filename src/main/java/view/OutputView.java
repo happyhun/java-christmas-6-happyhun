@@ -22,4 +22,12 @@ public class OutputView {
         String formattedAmount = formatter.format(totalPrice);
         System.out.println(formattedAmount + "원\n");
     }
+
+    public void printGiftMenus(Map<Menu, Integer> orders) {
+        System.out.println("<증정 메뉴>");
+        for (Map.Entry<Menu, Integer> order : orders.entrySet()) {
+            System.out.printf("%s %d개\n", order.getKey().getName(), order.getValue());
+        }
+        System.out.println();
+    }
 }
