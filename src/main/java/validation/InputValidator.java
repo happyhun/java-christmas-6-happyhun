@@ -73,13 +73,17 @@ public class InputValidator {
 
     private static void validateOrders(Map<Menu, Integer> orders) {
         boolean isValid = false;
-        for (Menu menu :orders.keySet()) {
-            if (menu.getType() != MenuType.DRINK) {
+        int totalCount = 0;
+        for (Map.Entry<Menu, Integer> order :orders.entrySet()) {
+            if (order.getKey().getType() != MenuType.DRINK) {
                 isValid = true;
             }
+            totalCount += order.getValue();
         }
-
         if (!isValid) {
+            throw new IllegalArgumentException();
+        }
+        if (totalCount > 20) {
             throw new IllegalArgumentException();
         }
     }
