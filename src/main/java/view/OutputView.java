@@ -1,5 +1,6 @@
 package view;
 
+import christmas.Promotion;
 import christmas.menu.Menu;
 
 import java.text.NumberFormat;
@@ -28,8 +29,27 @@ public class OutputView {
         if (orders.isEmpty()) {
             System.out.println("없음");
         }
+
         for (Map.Entry<Menu, Integer> order : orders.entrySet()) {
             System.out.printf("%s %d개\n", order.getKey().getName(), order.getValue());
+        }
+        System.out.println();
+    }
+
+    public void printPromotionDetails(Map<Promotion, Integer> promotionDetails) {
+        System.out.println("<혜택 내역>");
+        if (promotionDetails.isEmpty()) {
+            System.out.println("없음");
+        }
+
+        NumberFormat formatter = NumberFormat.getNumberInstance(Locale.KOREA);
+        for (Map.Entry<Promotion, Integer> detail : promotionDetails.entrySet()) {
+            if (detail.getValue() == 0) {
+                continue;
+            }
+            String name = detail.getKey().getName();
+            String formattedAmount = formatter.format(detail.getValue());
+            System.out.printf("%s: -%s원\n", name, formattedAmount);
         }
         System.out.println();
     }
