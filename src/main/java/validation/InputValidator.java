@@ -1,6 +1,7 @@
 package validation;
 
 import christmas.menu.Menu;
+import christmas.menu.MenuType;
 
 import java.util.*;
 
@@ -30,6 +31,7 @@ public class InputValidator {
                 Menu menu = getValidMenu(tokenizer.nextToken());
                 Integer count = getValidCount(tokenizer.nextToken());
                 storeOrder(menu, count, orders);
+                validateOrders(orders);
             } catch (NoSuchElementException | IllegalArgumentException e) {
                 throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
             }
@@ -55,9 +57,9 @@ public class InputValidator {
     }
 
     private static Integer getValidCount(String input) {
-        Integer count;
+        int count;
         try {
-            count = Integer.valueOf(input);
+            count = Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
@@ -67,5 +69,18 @@ public class InputValidator {
         }
 
         return count;
+    }
+
+    private static void validateOrders(Map<Menu, Integer> orders) {
+        boolean isValid = false;
+        for (Menu menu :orders.keySet()) {
+            if (menu.getType() != MenuType.DRINK) {
+                isValid = true;
+            }
+        }
+
+        if (!isValid) {
+            throw new IllegalArgumentException();
+        }
     }
 }
