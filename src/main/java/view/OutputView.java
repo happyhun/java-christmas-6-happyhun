@@ -9,6 +9,8 @@ import java.util.Map;
 
 public class OutputView {
 
+    private final NumberFormat formatter = NumberFormat.getNumberInstance(Locale.KOREA);
+
     public void printOrders(Map<Menu, Integer> orders) {
         System.out.println("<주문 메뉴>");
         for (Map.Entry<Menu, Integer> order : orders.entrySet()) {
@@ -19,7 +21,6 @@ public class OutputView {
 
     public void printTotalPrice(int totalPrice) {
         System.out.println("<할인 전 총주문 금액>");
-        NumberFormat formatter = NumberFormat.getNumberInstance(Locale.KOREA);
         String formattedAmount = formatter.format(totalPrice);
         System.out.println(formattedAmount + "원\n");
     }
@@ -42,7 +43,6 @@ public class OutputView {
             System.out.println("없음");
         }
 
-        NumberFormat formatter = NumberFormat.getNumberInstance(Locale.KOREA);
         for (Map.Entry<Promotion, Integer> detail : promotionDetails.entrySet()) {
             if (detail.getValue() == 0) {
                 continue;
@@ -52,5 +52,14 @@ public class OutputView {
             System.out.printf("%s: -%s원\n", name, formattedAmount);
         }
         System.out.println();
+    }
+
+    public void printTotalDiscountAmount(int totalDiscountAmount) {
+        System.out.println("<총혜택 금액>");
+        String formattedAmount = formatter.format(totalDiscountAmount);
+        if (totalDiscountAmount > 0) {
+            formattedAmount = "-" + formattedAmount;
+        }
+        System.out.println(formattedAmount + "원");
     }
 }
