@@ -21,4 +21,13 @@ class OrderCalculatorTest {
         assertThat(orderCalculator.calculateTotalPrice(orders)).isEqualTo(12000);
     }
 
+    @Test
+    void 총할인_금액_계산() {
+        Map<Promotion, Integer> promotionDetails = new HashMap<>();
+        promotionDetails.put(Promotion.CHRISTMAS_DDAY_DISCOUNT, 1100);
+        promotionDetails.put(Promotion.SPECIAL_DISCOUNT, 2000);
+
+        assertThat(orderCalculator.calculateTotalDiscountAmount(promotionDetails)).isEqualTo(3100);
+    }
+
 }

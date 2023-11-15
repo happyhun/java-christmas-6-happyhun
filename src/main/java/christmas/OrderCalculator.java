@@ -15,4 +15,12 @@ public class OrderCalculator {
         }
         return totalPrice;
     }
+
+    public int calculateTotalDiscountAmount(Map<Promotion, Integer> promotionDetails) {
+        int totalDiscountAmount = 0;
+        for (int amount : promotionDetails.values()) {
+            totalDiscountAmount += amount;
+        }
+        return totalDiscountAmount;
+    }
 }
