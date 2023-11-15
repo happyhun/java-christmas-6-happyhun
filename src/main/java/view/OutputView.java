@@ -40,11 +40,8 @@ public class OutputView {
     }
 
     public void printPromotionDetails(Map<Promotion, Integer> promotionDetails) {
+        boolean isPrinted = false;
         System.out.println("<혜택 내역>");
-        if (promotionDetails.isEmpty()) {
-            System.out.println("없음");
-        }
-
         for (Map.Entry<Promotion, Integer> detail : promotionDetails.entrySet()) {
             if (detail.getValue() == 0) {
                 continue;
@@ -52,6 +49,10 @@ public class OutputView {
             String name = detail.getKey().getName();
             String formattedAmount = formatter.format(detail.getValue());
             System.out.printf("%s: -%s원\n", name, formattedAmount);
+            isPrinted = true;
+        }
+        if (!isPrinted) {
+            System.out.println("없음");
         }
         System.out.println();
     }
@@ -63,6 +64,7 @@ public class OutputView {
             formattedAmount = "-" + formattedAmount;
         }
         System.out.println(formattedAmount + "원");
+        System.out.println();
     }
 
     public void printTotalPriceAfterDiscount(int totalPriceAfterDiscount) {
